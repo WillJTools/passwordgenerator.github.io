@@ -1,35 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
-<body>
-    <h1 class="title">Password Generator</h1>
 
-    <div class="questions-container">
-        <div class="question-container">
-            <h3 class="question">What is your favorite color?</h3>
-            <button class="new-question-button">Get new question</button>
+<body class="blue-grey lighten-5">
+    <nav class="blue darken-2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Password Generator</a>
         </div>
-        <div class="question-container">
-            <h3 class="question">What is your favorite food?</h3>
-            <button class="new-question-button">Get new question</button>
+    </nav>
+
+    <div class="container">
+        <h3 class="center">Answer the Questions</h3>
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card">
+                    <div class="card-content">
+                        <form id="password-form">
+                            <div class="input-field">
+                                <label for="answer1">Question 1</label>
+                                <input type="text" id="answer1" class="validate" required>
+                            </div>
+                            <div class="input-field">
+                                <label for="answer2">Question 2</label>
+                                <input type="text" id="answer2" class="validate" required>
+                            </div>
+                            <div class="input-field">
+                                <label for="answer3">Question 3</label>
+                                <input type="text" id="answer3" class="validate" required>
+                            </div>
+                            <div class="center">
+                                <button class="btn waves-effect waves-light" type="button" id="new-question-btn">Get New Question</button>
+                                <button class="btn waves-effect waves-light" type="submit" id="generate-btn">Generate Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="question-container">
-            <h3 class="question">What is your favorite book?</h3>
-            <button class="new-question-button">Get new question</button>
+
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card">
+                    <div class="card-content">
+                        <div id="result-container"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="password-container">
-        <input type="text" id="answer1" class="answer-input" placeholder="Answer 1">
-        <input type="text" id="answer2" class="answer-input" placeholder="Answer 2">
-        <input type="text" id="answer3" class="answer-input" placeholder="Answer 3">
-        <button id="generate-button">Generate Password</button>
-        <div id="result-container"></div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="main.js"></script>
 </body>
+
 </html>

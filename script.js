@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function transformAnswer(answer) {
-        const specialCharacters = {'s': '$', 'i': '1', 'e': '3', 'o': '0'};
+        const specialCharacters = {'s': '$', 'i': '1', 'e': '3', 'o': '0', ' ': '_', 'a': '@'};
 
         return Array.from(answer).map(char => specialCharacters[char.toLowerCase()] || char).join('');
     }

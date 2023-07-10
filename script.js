@@ -1,37 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const newQuestionButtons = document.querySelectorAll('.new-question-button');
-    const questionElements = document.querySelectorAll('.question');
-
-    newQuestionButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            const newQuestion = getRandomQuestion();
-            questionElements[index].textContent = newQuestion;
-        });
-    });
-
-    const generateButton = document.getElementById('generate-button');
+    const newQuestionBtn = document.getElementById('new-question-btn');
+    const generateBtn = document.getElementById('generate-btn');
     const resultContainer = document.getElementById('result-container');
 
-    generateButton.addEventListener('click', () => {
-        const answers = [];
-
-        document.querySelectorAll('.answer-input').forEach((input) => {
-            answers.push(input.value.trim());
-        });
-
-        if (answers.length !== 3 || answers.some(answer => answer === '')) {
-            alert('Please provide answers for all questions.');
-            return;
-        }
-
-        const transformedAnswers = answers.map(answer => transformAnswer(answer));
-        const password = transformedAnswers.join('');
-
-        resultContainer.textContent = `Generated Password: ${password}`;
-    });
-
-    function getRandomQuestion() {
-        const availableQuestions = [
+    newQuestionBtn.addEventListener('click', () => {
+        const questions = [
             "What is your favorite color?",
             "What is your favorite food?",
             "What is your favorite book?",
@@ -101,11 +74,37 @@ document.addEventListener('DOMContentLoaded', () => {
             // Add more questions here
         ];
 
-        return availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
-    }
+        const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+        M.toast({ html: randomQuestion });
+    });
+
+    generateBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const answer1 = document.getElementById('answer1').value;
+        const answer2 = document.getElementById('answer2').value;
+        const answer3 = document.getElementById('answer3').value;
+
+        if (!answer1 || !answer2 || !answer3) {
+            M.toast({ html: 'Please provide answers for all questions.' });
+            return;
+        }
+
+        const transformedAnswers = [answer1, answer2, answer3].map(transformAnswer);
+        const password = transformedAnswers.join('');
+
+        resultContainer.textContent = `Generated Password: ${password}`;
+    });
 
     function transformAnswer(answer) {
-        const specialCharacters = {'s': '$', 'i': '1', 'e': '3', 'o': '0'};
+        const specialCharacters = {
+            's': '$',
+            'i': '1',
+            'e': '3',
+            'o': '0',
+            ' ': '_',
+            'a': '@'
+        };
 
         return Array.from(answer).map(char => specialCharacters[char.toLowerCase()] || char).join('');
     }

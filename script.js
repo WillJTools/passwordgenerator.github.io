@@ -105,8 +105,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function transformAnswer(answer) {
-        const specialCharacters = {'s': '$', 'i': '1', 'e': '3', 'o': '0'};
+  const specialCharacters = {'s': '$', 'i': '1', 'e': '3', 'o': '0', ' ': '_', 'a': '@'};
 
-        return Array.from(answer).map(char => specialCharacters[char.toLowerCase()] || char).join('');
+  let transformedAnswer = '';
+  let isCapitalized = false;
+
+  for (const char of answer) {
+    if (!isCapitalized && char.match(/[a-z]/i)) {
+      transformedAnswer += char.toUpperCase();
+      isCapitalized = true;
+    } else {
+      transformedAnswer += specialCharacters[char.toLowerCase()] || char;
     }
-});
+  }
+
+  return transformedAnswer;
+}

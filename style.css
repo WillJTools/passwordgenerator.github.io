@@ -1,54 +1,88 @@
+/* style.css */
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.questions-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .question-container {
-    width: 300px;
-    padding: 10px;
-    margin: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .question {
-    margin: 0;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .new-question-button {
-    margin-top: 10px;
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.password-container {
-    text-align: center;
+.answer-container {
+  margin-bottom: 20px;
+}
+
+.answer-label {
+  font-weight: bold;
 }
 
 .answer-input {
-    width: 200px;
-    padding: 5px;
-    margin: 5px;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-#generate-button {
-    padding: 10px 20px;
-    margin-top: 10px;
+.generate-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-#result-container {
-    margin-top: 20px;
-    font-weight: bold;
+.result-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.generated-password {
+  font-size: 18px;
+  font-weight: bold;
+  color: #28a745;
 }

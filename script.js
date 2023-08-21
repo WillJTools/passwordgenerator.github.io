@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "Who can you impersonate the best?",
             "Who is your favorite president?",
             "What is your mothers maiden name?",
-            // Add more questions here
+            // More Questions will be added here
         ];
 
         return availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
